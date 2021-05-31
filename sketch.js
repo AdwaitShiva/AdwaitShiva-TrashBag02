@@ -5,7 +5,10 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
 
-var engine, world, paper1, ground, dustbin1 
+var engine, world, paper1, ground, dustbin1;
+function preload(){
+  trash=loadImage("dustbingreen.png")
+}
 function setup() {
     createCanvas(800, 700);
     rectMode(CENTER);
@@ -16,11 +19,12 @@ function setup() {
     //Create the Bodies Here.
     paper1 = new Paper(100,600, 10);
     ground = new Ground(400,680,800,20);
-    dustbin1 = new Dustbin(600,640, 160, 130);
-       dustbin2 = new Dustbin(530,610,50,150);
-    dustbin3 = new Dustbin(670,610,50,150)
-paper1.body.depth= dustbin1.body.depth
-dustbin1.body.depth= paper1.body.depth+1   
+    dustbin1 = new Dustbin(610,660, 100, 20);
+   dustbin2 = new Dustbin(550,670,20,100);
+    dustbin3 = new Dustbin(670,620,20,100) 
+    
+    
+
 
     Engine.run(engine);
   
@@ -38,11 +42,10 @@ function draw() {
 
   ground.display();
 
-  dustbin1.display();
-dustbin2.display()
-dustbin3.display()
 
-  
+dustbin2.display()
+
+
 }
 
 function keyPressed(){
